@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stockholm Tour Guide</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Berra Tech">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="assets/snickare.png">
+  <!-- Google tag (gtag.js) -->
+  <!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6T4YKZ0C2"></script>-->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-H6T4YKZ0C2');
+  </script>
+</head>
+<body>
+  <style>
+    img {
+      pointer-events: none;
+      -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+    }
+    @-webkit-keyframes fadein {
+        from { margin-top: 10rem }
+        to   { margin-top: 0rem }
+    }
+    p {
+      max-width:50rem;
+    }
+    a {
+      text-decoration: none;
+    }
+    .container {
+      padding: 5rem 2rem 5rem 2rem;
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+    }
+    .bg-grey {
+      color: #000!important;
+      background-color: #f1f1f1!important;
+    }
+    .bg-img-ios {
+      color: white;
+      background-position: center;
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .bg-img {
+      color: white;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .information {
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),url("assets/Stadshuset.jpeg");
+    }
+    .portfolio-img-container img {
+        padding: 1rem;
+    }
+    .om-oss {
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),url("assets/stockholm.jpeg");
+    }
+    .contact {
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),url("assets/footerbg.jpeg");
+    }
+
+  /* Kontakta oss button */
+  .button-85 {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: black;
+    background: #111;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .button-85:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+
+  @keyframes glowing-button-85 {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  .button-85:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+
+  /* Star */
+  .checked {
+    color: orange;
+  }
+  .fa-star {
+    font-size: 2rem;
+  }
+
+  body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+  .w3-row-padding img {margin-bottom: 12px}
+  .bgimg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('assets/sidebar.jpeg');
+    min-height: 100%;
+    border-right: 1px solid black;
+  }
+  </style>
+<!-- Sidebar with image -->
+<nav class="w3-sidebar w3-hide-medium w3-hide-small" style="width:40%"> 
+  <div class="bgimg"></div>
+</nav>
+
+<!-- Hidden Sidebar (reveals when clicked on menu icon) -->
+<nav class="w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2; opacity: 0.9;" id="mySidebar">
+  <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xxxlarge w3-display-topright" style="padding:0 12px;">
+    <i class="fa fa-remove"></i>
+  </a>
+  <div class="w3-bar-block w3-center">
+    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Start</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Images</a>
+    <a href="#about" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">About Us</a>
+    <a href="#vara-tjanster" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Why Choose Us?</a> 
+    <a href="#contact" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Contact Us</a>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="w3-main" style="margin-left:40%">
+  <!-- Menu icon to open sidebar -->
+  <span class="w3-button w3-top w3-white w3-xxlarge w3-text-grey w3-hover-text-black bg-grey" style="width:auto;right:0; border-radius: 0rem 0rem 0rem 1.5rem;"           
+    onclick="openNav()"><i class="fa fa-bars"></i></span>
+
+  <!-- Header -->
+  <header class="container center column information" id="home">
+    <h1 style="font-size: 30px !important;text-align: center;"><b>Stockholm Tour Guide!</b></h1>
+    <p style="text-align: center;">DISCOVER THE OLD TOWN ON THIS PERSONALIZED SMALL GROUP WALKING TOUR OF STOCKHOLM’S MAGICAL MEDIEVAL OLD TOWN. WIND YOUR WAY THROUGH COBBLE STONE STREETS, NARROW ALLEYWAYS AND MEDIEVAL ARCHITECTURE WHILE LEARNING ABOUT THE CITY’S ORIGINS AND COLORFUL HISTORY VIA STORYTELLING AND FUN FACTS. START AT THE GATEWAY OF THE OLD TOWN AND TOUCHING BRIEFLY ON MODERN DAY SWEDEN BEFORE DELVING INTO THE  HEART OF OLD TOWN. AN EASY GOING HISTORICAL STROLL FOR ALL SEASONS!
+    Have fun!</p>
+
+    <div class="column center">
+      <!--
+      <img style="width: 100%; max-width: 15rem" src="assets/snickare.png">
+      <img style="width: 100%; max-width: 15rem" src="assets/behörigheter.png">
+      -->
+      <!--5 Stars-->
+      <div>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+      </div>
+      <p style="margin: 0rem"><b>Stockholm Tour Guide!</b></p>
+      <!--
+      <p style="margin: 0rem"><b>Från vision till verklighet...</b></p>
+      <p style="margin-top: 0rem"><b>Trygghet och kvalitet</b></p>
+      -->
+      <a href="#contact" class="button-85" role="button">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- Portfolio Section -->
+  <div id="portfolio" class="container">
+    <h2 style="text-align:center">Images</h2>
+    <hr class="w3-opacity">
+    <div id="portfolio-img-container" class="portfolio-img-container">
+      <div>
+        <img class="lazy" style="max-width: 40rem; width: 100%" data-src="assets/stockholm.jpeg">
+        <img class="lazy" style="max-width: 40rem; width: 100%" data-src="assets/stockholm2.jpeg">
+        <img class="lazy" style="max-width: 40rem; width: 100%" data-src="assets/stockholm3.jpeg">
+      </div>
+      <div>
+        <img class="lazy" style="max-width: 40rem; width: 100%" data-src="assets/isbaren.jpeg">
+        <img class="lazy" style="max-width: 40rem; width: 100%" data-src="assets/stockholm5.jpeg">
+        <img class="lazy" style="max-width: 40rem; width: 100%" data-src="assets/vasa.jpeg">
+      </div>
+    </div>
+  </div>
+  <script>
+    function isMob() {
+      if (( window.innerWidth <= 800 ) && ( window.innerHeight <= 1000 )) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    if(isMob()) {
+      document.getElementById("portfolio-img-container").classList.add("column");
+    } else {
+      document.getElementById("portfolio-img-container").classList.add("row");
+    }
+  </script>
+
+<style>
+  .dots {
+    margin: 0rem;
+    text-align: center;
+  }
+</style>
+<!-- About Section-->
+  <div class="container om-oss" id="about">
+    <div class="center column" style="max-width: 980px;">
+      <h2>About Us</h2>
+      <p style="text-align: center;">Discover the Charm of Stockholm with Our Expert Tour Guide. Immerse yourself in the beauty and history of Stockholm, often called the 'Venice of the North.' Our knowledgeable guide will lead you through the city's most iconic sites, perfect for history enthusiasts, culture lovers, and curious adventurers. Enjoy the convenience of a private chauffeur who will drive you around the city, ensuring a seamless and comfortable experience.</p>
+      
+      <p style="text-align: center;"><b>Tour Highlights:</b></P>
+      <p class="dots"><b>Gamla Stan (Old Town):</b> Wander through charming cobblestone streets, and visit the majestic Royal Palace and the historic Storkyrkan Cathedral.</p>
+      
+      <p class="dots"><b>Vasa Museum:</b> Marvel at the 17th-century warship, Vasa, and learn its incredible story.</p>
+      
+      <p class="dots"><b>Skansen Open-Air Museum:</b> Discover Swedish traditions and encounter native wildlife.</p>
+      
+      <p class="dots"><b>Djurgården Island:</b> Explore attractions like the ABBA Museum and the serene Rosendals Trädgård.</p>
+      
+      <p class="dots"><b>City Hall (Stadshuset):</b> Enjoy breathtaking architecture and panoramic views of the city. Our guide is qualified to provide in-depth tours of this iconic building.</p>
+      
+      <p class="dots"><b>Modern Art and Architecture:</b> Visit the Moderna Museet and admire the city's cutting-edge buildings.</p>
+      <p style="text-align: center;"><b>Additional Tours:</b></P>
+      <p class="dots"><b>Vasa Museum:</b> Delve deeper into the story of the Vasa ship.Spy Program: Discover Stockholm’s hidden espionage history.</p>
+      
+      <p class="dots"><b>Drottningholm Palace:</b> Visit the stunning residence of the Swedish royal family.</p>
+      
+      <p class="dots"><b>Royal Palace:</b> Explore the grandeur of the Royal Palace in the heart of the city.Sigtuna Landside: Experience the charm of Sweden’s oldest town.</p>
+      
+      <p class="dots"><b>Hammarby Sjöstad:</b> Discover the modern eco-friendly district of Stockholm.</p>
+      
+      <p class="dots"><b>World’s Tallest Underground Art:</b> Explore the stunning artwork in Stockholm’s subway system.</p>
+      
+      <p class="dots"><b>Private Tours:</b> Enjoy exclusive private tours for up to 8 people. Travel comfortably with our private car service.</p>
+    </div>
+  </div>
+
+  <!-- Våra tjänster -->
+  <style>
+    .vara-tjanster-img {
+      width: 10rem;
+      height: 10rem;
+      filter: brightness(50%); 
+    }
+    .vara-tjanster-img-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color:white;
+      margin: 0;
+      font-size: 1.5rem;
+    }
+  </style>
+  <div class="container" id="vara-tjanster">
+    <div class="center column" style="max-width: 980px;">
+      <h2>Why Choose Us?</h2>
+      <p style="text-align: center;">Expert Knowledge: Passionate guides who bring Stockholm’s history to life.Personalized Experience: Tailored tours to match your interests.Comfort and Convenience: Well-organized itineraries and transportation.Local Insights: Insider tips on the best places to eat, shop, and explore.Join us for an unforgettable journey through Stockholm. Book your tour today!</p>
+      <div style="display: flex; flex-direction: row; justify-content: space-around; width: 100%; max-width: 25rem">
+        <div style="position: relative; text-align: center;">
+          <img data-src="assets/gata.jpeg" class="vara-tjanster-img lazy">
+          <p class="vara-tjanster-img-text"><b>Expert Knowledge</b></p>
+        </div>
+        <div style="position: relative; text-align: center;">
+          <img data-src="assets/bro.jpeg" class="vara-tjanster-img lazy">
+          <p class="vara-tjanster-img-text"><b>Personalized Experience</b></p>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: row; justify-content: space-around; width: 100%; max-width: 25rem; margin-top: 3rem">
+        <div style="position: relative; text-align: center;">
+          <img data-src="assets/viking.jpeg" class="vara-tjanster-img lazy">
+          <p class="vara-tjanster-img-text"><b>Comfort and Convenience</b></p>
+        </div>
+        <div style="position: relative; text-align: center;">
+          <img data-src="assets/stadshuset.jpeg" class="vara-tjanster-img lazy">
+          <p class="vara-tjanster-img-text"><b>Local Insights</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Contact Section -->
+  <div class="container center contact" id="contact">
+    <div style="max-width: 980px">
+      <h2>Contact Us</h2>
+      <hr class="w3-opacity">
+      <p class="dots">We are available from 9:00 to 15:00, with a lunch closure from 11:00 to 13:00.</p>
+      <p class="dots">Please don't hesitate to contact us.</p>
+      <p class="dots">We respond to emails within 24 hours.</p>
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Stockholm, Sverige</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: 0705536555</p>
+      <p>
+        <i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"></i>
+        Email: 
+        <a href="mailto:byggvatrum@hotmail.com">akino54@msn.com</a>
+      </p>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="container center column bg-grey" id="footer">
+    
+    <p style="text-align: center;">Explore Stockholm in comfort and style with our chauffeured 7-seater car. Whether you're discovering the historic Gamla Stan, marveling at the beauty of Djurgården, or enjoying the vibrant city life, our spacious vehicle ensures a relaxing and enjoyable experience throughout your journey.</p>
+    
+    <img class="lazy" style="max-width: 40rem; width: 100%" data-src="assets/toyota.jpg">
+    
+    <!--
+    <p style="font-size: 25px;"><b>Follow us on Instagram!</b></p>
+    <a style="padding: 0rem 0rem 5rem 0rem" href="https://www.instagram.com">
+      <div class="row">
+        <img class="lazy" width="150px" data-src="assets/qr.png">
+        <div>
+          <p style="margin-bottom: 0rem; margin-left: 2rem"><b>Click here!</b></p>
+          <img class="lazy" width="150px" style="width: 4rem;" data-src="assets/arrow.png">
+        </div>
+      </div>
+    </a>
+     -->
+  </footer>
+</div>
+
+<script>
+  // Open and close sidebar
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "60%";
+    document.getElementById("mySidebar").style.display = "block";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
+
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    document.getElementById("home").classList.add("bg-img-ios");
+    document.getElementById("about").classList.add("bg-img-ios");
+    document.getElementById("contact").classList.add("bg-img-ios");
+  } else {
+    document.getElementById("home").classList.add("bg-img");
+    document.getElementById("about").classList.add("bg-img");
+    document.getElementById("contact").classList.add("bg-img");
+  }
+</script>
+
+<script>
+  // This is for lazy loading img with class name lazy
+  // Example use <img class="lazy" data-src="assets/livingroom.jpg">
+  document.addEventListener("DOMContentLoaded", function() {
+  var lazyloadImages = document.querySelectorAll("img.lazy");    
+  var lazyloadThrottleTimeout;
+  
+  function lazyload () {
+    if(lazyloadThrottleTimeout) {
+      clearTimeout(lazyloadThrottleTimeout);
+    }    
+    
+    lazyloadThrottleTimeout = setTimeout(function() {
+        var scrollTop = window.pageYOffset;
+        lazyloadImages.forEach(function(img) {
+            if(img.offsetTop < (window.innerHeight + scrollTop)) {
+              img.src = img.dataset.src;
+              img.classList.remove('lazy');
+            }
+        });
+        if(lazyloadImages.length == 0) { 
+          document.removeEventListener("scroll", lazyload);
+          window.removeEventListener("resize", lazyload);
+          window.removeEventListener("orientationChange", lazyload);
+        }
+    }, 20);
+  }
+  
+  document.addEventListener("scroll", lazyload);
+  window.addEventListener("resize", lazyload);
+  window.addEventListener("orientationChange", lazyload);
+});
+</script>
+
+</body>
+</html>
